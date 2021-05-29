@@ -1,0 +1,602 @@
+cd downloads
+ssh -i linux.pem ec2-user@13.235.71.184
+sudo /bin/bash
+sudo yum update -y
+sudo amazon-linux-extras install docker
+sudo yum install docker
+sudo service docker start
+systemctl status docker
+systemctl enable docker
+docker info
+docker images
+docker pull nginx
+docker images
+docker run -dit -p 81:80 nginx
+docker exec -it
+docker exec -it b2fe723fa774 /bin/bash
+cat /etc/os-release
+docker pull ubuntu
+docker images
+docker run -dit ubuntu
+docker ps
+docker exec -it 5afc6206dcce /bin/bash
+cat /etc/os-release
+-------------
+ sudo yum update -y
+    2  sudo amazon-linux-extras install docker
+    3  systemctl enable docker
+    4  docker pull ubuntu
+    5  docker images
+    6  docker run -dit ubuntu
+    7  docker run -dit ubuntu
+    8  docker images
+    9  docker ps
+   10  docker stop 63a690b7f4ef
+   11  docker ps
+   12  docker ps -a
+   13  docker system prune
+   14  docker system prune -a
+   15  docker run -dit --name mycontainer ubuntu
+   16  docker ps
+   17  docker info
+   18  docker inspect ubuntu
+   19  docker inspect mycontainer
+   20  systemctl enable docker
+   21  docker pull maven
+   22  docker ps
+   23  docker run -dit --name mvn file maven
+   24  docker run -dit --name mvn-file maven
+   25  docker ps
+   26  docker run -dit maven
+   27  docker ps
+   28  docker images
+   29  docker run -dit ubuntu
+   30  docker run -dit --name contain1 ubuntu
+   31  docker ps
+   32  docker run -dit --name containa maven
+   33  docker ps
+   34  docker images
+   35  docker info
+   37  docker run -dit --name containa maven
+   38  docker run -dit --name containa ubuntu
+   39  systemctl enable docker
+   40  docker run -dit --name containa ubuntu
+   41  docker ps
+   42  docker run -dit --name containab  maven
+   43  dockerps
+   44  docker ps
+   45  sudo yum update -y
+   46  docker info
+   47  docker images
+   48  docker pull nginx
+   49  docker images
+   50  docker run -dit -p 81:80 nginx
+   51  docker ps
+   52  cat /etc/os-release
+   53  docker exec -it cdb6d5476f02 /bin/bash
+   56  docker ps -a
+   57  docker stop c1208e74bf99
+   58  docker ps -a
+   59  docker images
+   63  docker system prune
+   64  docker system prune -a
+   65  docker info
+   66  docker inspect ubuntu
+   67  docker ps
+   68  docker inspect cdb6d5476f02
+   69  docker run -dit --name new1 nginx
+   70  docker ps
+   71  docker stop cda22aade51d  cdb6d5476f02  c90293fc7c44  b52db64241a4 22fb5d3f5ca7 b198e8778257
+   72  docker system prune
+   73  docker images
+   74  ls
+   75  ls /
+   76  mkdir /linux
+   77  ls /
+   78  pwd
+   79  docker run -dit -v /linux:/sukesh nginx
+   80  docker ps
+   81  docker exec -it fd98250305e0 /bin/bash
+   82  pwd
+   83  ls
+   84  ls /
+   85  cd /
+   86  ls
+   87  pwd
+   88  cd linux
+   89  ls
+   90  cd f1
+   91  history
+   92  clear
+   93  docker ps
+   94  docker stop fd98250305e0
+   95  docker ps
+   96  ls
+   97  docker volumes
+   98  docker volume ls
+   99  docker volume
+  102  docker images
+  103  docker ps
+  104  docker volume create myvol
+  105  docker volume ls
+  107  docker run -d -v myvol:/new  --name cont1 nginx
+  108  docker ps
+  109  cd /var
+  110  ls
+  112  cd local
+  113  ls
+  114  cd lib
+  115  cd ..
+  116  cd lib
+  117  ls
+  118  cd docker
+  119  ls
+  120  cd volumes/
+  121  cd myvol/
+  122  cd..
+  123  cd ..
+  124  ls
+  125  cd myvol/
+  126  ls
+  127  cd _data/
+  128  ls
+  129  ls -a
+  130  docker ps
+  131  docer exec -it cont1
+  132  docker exec -it cont1
+  133  docker exec --help
+  134  docker exec -it cont1 /bin/bash
+  135  pwd
+  142  cd ..
+  143  ls
+  144  cd linux
+  145  ls
+  146  docker ps
+  147  docker run -it -v myvol:new1 --name cont2 ubuntu
+  148  docker exec -it cont1 /bin/bash
+  149  pwd
+  150  ls
+  151  cd /var
+  152  cd /lib
+  153  ls
+  154  cd /var/lib/docker/volumes/myvol/
+  155  ls
+  156  cd data
+  157  cd _data
+  158  ls
+  159  docker run -it -v myvol:/new2 --name c1 nginx
+  160  docker run -it -v myvol:/new2 --name cont3 nginx
+  161  docker run -dit -v myvol:/new2 --name c2 nginx
+  162  docker ps
+  163  docker exec -it c2 /bin/bash
+  164  docker run -dit -v myvol:/new3 --name cont2 ubuntu
+  165  docker exec -it cont2 /bin/bash
+docker network create --driver bridge nnetwork
+docker run -dit -v myvol:/new3 --name cont2 --network unetwork ubuntu
+docker cp src/. mycontainer:/target
+docker cp mycontainer:/src/. target
+docker cp /linux/aws cont1:/etc/aws
+docker cp cont1:/etc/aws /linux/aws
+docker network create --driver bridge nnetwork
+  177  docker network ls
+  178  docker network create --driver bridge unetwork
+  179  docker inspect nnetwork
+  180  docker inspect unetwork
+  181  docker run -dit --name ncont1--network nnetwork nginx
+  182  docker run -dit --name ncont1 ---network nnetwork nginx
+  183  docker run -dit --name ncont1 --network nnetwork nginx
+  184  docker run -dit --name ncont2 --network nnetwork nginx
+  185  docker run -dit --name ncont3 --network nnetwork nginx
+  186  docker run -dit --name ncont4 --network nnetwork nginx
+  187  docker run -dit --name ncont5 --network nnetwork nginx
+  188  docker ps
+  189  docker inspect ncont2
+  190  docker inspect ncont3
+  191  docker inspect ncont5
+  192  docker run -dit --name ucont1 --network unetwork ubuntu
+  193  docker run -dit --name ucont2 --network unetwork ubuntu
+  194  docker run -dit --name ucont3 --network unetwork ubuntu
+  195  docker ps
+  196  docker inspect ucont2
+  197  docker inspect ucont1
+  198  docker run -dit --name nalpine1 --network nnetwork alpine
+  199  docker run -dit --name nalpine2 --network nnetwork alpine
+  200  docker run -dit --name nalpine1 --network unetwork alpine
+  201  docker run -dit --name ualpine1 --network unetwork alpine
+  202  docker run -dit --name ualpine2 --network unetwork alpine
+  209  docker inspect nalpine1
+  210  docker exec nalpine1 lbinlbash
+  211  docker exec nalpine1 /bin/bash
+  212  docker exec -it nalpine1 /bin/bash
+  213  docker run -dit --name hostc --network host alpine
+  214  docker exec -it hostc /bin/sh
+  215  docker network ls
+  216  docker inspect b7f94b8361b2
+  217  docker run -dit hello-world
+  218  docker run -it hello-world
+  220  docker ps -a
+  221  docker start bf5e118bc274
+  224  docker images
+  226  docker ps -a
+  228  docker start f3354157a317
+  229  docker start 46f2189a7806
+  231  pwd
+  232  cd /linux
+  234  docker cp /linux/f1 ncont1:/etc
+  235  docker cp /linux/f1 ncont1:/etd
+  236  docker exec -it ncont1 /bin/bash
+  237  docker cp /linux/f1 ncont1:/new1
+  238  docker exec -it ncont1 /bin/bash
+  239  docker pull httpd
+  241  docker run -dit --name httpdcont -p 82:80 httpd
+  242  docker pull wordpress
+  244  docker run -dit --name wpcont -p 83:80 wordpress
+  247  vi index.html
+  248  docker cp /linux/index.html httpdcont:/usr/local/apache2/htdocs/
+docker cp src/. mycontainer:/target
+docker cp mycontainer:/src/. target
+docker cp /linux/aws cont1:/etc/aws
+docker cp cont1:/etc/aws /linux/aws
+  262  docker network create --driver bridge webnet
+  263  docker network ls
+  264  docker pull mariadb
+  265  docker images
+  266  docker run -dit --network webnet --name mariacont -e MYSQL_ROOT_PASSWORD=devops43 -e MYSQL_DATABASE=wordpressdb -e MYSQL_USER=sukesh -e MYSQL_PASSWORD=devops43 mariadb
+  267  docker ps
+  268  docker inspect mariacont
+  269  docker run -dit --network webnet --name wpcont -e WORDPRESS_DB_HOST=172.18.0.2 -e WORDPRESS_DB_USER=sukesh -e WORDPRESS_DB_PASSWORD=devops43 -e WORDPRESS_DB_NAME=wordpressdb -e WORDPRESS_TABLE_PREFIX=wp_ -p 82:80 wordpress
+  270  docker ps
+  271  docker run -dit -p 83:80 --name c1 wordpress
+  272  docker run -dit -p 83:80 --name c2 --network webnet wordpress
+  273  docker run -dit -p 85:80 --name c2 --network webnet wordpress
+  274  docker ps
+  275  docker stop c1
+  276  docker ps
+  277  docker run -dit -p 83:80 --name c1 --network webnet wordpress
+  278  docker ps -a
+  279  docker rm c1
+  280  docker stop c2
+  281  docker rm c2
+  282  docker ps -a
+  283  docker run -dit -p 83:80 --name c1 --network webnet wordpress
+  359  dockerps
+  360  docker ps
+  361  docker inspect mariadb
+  362  docker inspect mariacontnew
+  363  docker ps
+  364  docker network create --driver bridge netweb
+  365  docker run -dit --network netweb --name mariaexpnew -e MYSQL_ROOT_PASSWORD=devops43 -e MYSQL_DATABASE=wordpressdb -e MYSQL_USER=sukesh -e MYSQL_PASSWORD=devops43 mariadb
+  366  docker inspect mariaexpnew
+  367  docker run -dit --network webnet --name wpexpcont -e WORDPRESS_DB_HOST=172.18.0.2 -e WORDPRESS_DB_USER=sukesh -e WORDPRESS_DB_PASSWORD=devops43 -e WORDPRESS_DB_NAME=wordpressdb -e WORDPRESS_TABLE_PREFIX=wp_ -p 87:80 wordpress
+ 386  docker ps
+  387  docker run -dit --name linkc1 -e MYSQL_ROOT_PASSWORD=devops43 -e MYSQL_DATABASE=wordpressdb -e MYSQL_USER=sukesh -e MYSQL_PASSWORD=devops43 mariadb
+  389  docker ps
+  390  docker run --name linkc3 --link linkc1:wordpressdb -p 81:80 -d wordpress
+  394  docker ps
+  398  docker run -dit --name cmtcnt ubuntu
+  399  docker exec -it cmtcnt /bin/bash
+  400  docker ps
+  401  docker commit cmtcnt cmtimage:v1
+  402  docker images
+  403  docker run -dit --name test cmtimage
+  404  docker run -dit --name test cmtimage:v1
+  405  docker ps
+  406  docker exec -it test /bin/bash
+  617  vi docker-compose.yml
+  618  docker ps
+  619  docker-compose scale wpweb=3
+  620  docker ps
+  621  docker-compose scale wpweb=4
+  622  docker ps
+  623  docker ps -a
+  624  docker stop  test1_wpweb_3
+  625  docker rm  test1_wpweb_3
+  626  docker ps
+  627  docker run -dit --name test -p 87:80 wordpress
+  628  docker run -dit --name tfgf -p 87:80 wordpress
+  629  docker ps
+  630  docker-compose scale wpweb=2
+  631  docker ps
+  632  docker-compose down
+  644  docker-compose up
+  645  docker ps
+  646  docker inspect test1_dbweb_1
+  647  ls
+  648  cd ..
+  649  ls /linux
+  654  ls
+  655  cd /var
+  656  ls
+  657  cd /lib
+  658  ls
+  659  cd /var/lib/docker/volumes
+  661  cd test1_dbweb
+  664  cd _data
+  667  cd scripts/test1/
+  668  history
+-------------------------------------------------
+docker compose file
+
+version: "3.8"
+services:
+  dbweb:
+    image: mariadb
+    ports:
+      - 81-85:80
+    environment:
+      MYSQL_DATABASE: wordpressdb
+      MYSQL_USER: sukesh
+      MYSQL_PASSWORD: devops43
+      MYSQL_RANDOM_ROOT_PASSWORD: '1'
+    volumes:
+      - dbweb:/var/lib/maria1
+      - dbweb:/linux
+    networks:
+      - cmpnet
+      - webnet
+  wpweb:
+    image: wordpress
+    ports:
+      - 86-89:80
+    environment:
+      WORDPRESS_DB_HOST: dbweb
+      WORDPRESS_DB_USER: sukesh
+      WORDPRESS_DB_PASSWORD: devops43
+      WORDPRESS_DB_NAME: wordpressdb
+    volumes:
+      - wpweb:/var/www/html
+    networks:
+      - cmpnet
+networks:
+  cmpnet:
+  webnet:
+
+volumes:
+  wpweb:
+  dbweb:
+
+------------------------------------------------
+
+  805  cd docfiles/
+  806  vi docker file
+  807  cd docfiles/
+  808  vi docker file
+  809  ls
+  810  mv docker docker file
+  811  mv docker docker-file
+  812  ls
+  813  mv docker-file dockerfile
+  814  ls
+  815  docker build .
+  816  vi dockerfile
+  817  docker build -t myubuntu .
+  818  vi dockerfile
+  819  docker build -t myubuntu .
+  820  docker build .
+  821  vi dockerfile
+  822  docker --version
+  823  ls
+  824  cd ..
+  825  ls
+  826  cd docfiles/
+  827  ls
+  828  cat /etc/os-release
+  829  yum install vim
+  830  vi dockerfile
+  831  rm dockerfile
+  832  ls
+  833  vi dockerfile
+  834  docker build .
+  835  docker ps
+  836  docker images
+  837  docker run -dit --name dfcont  4874b06e6126
+-----------------------------------------
+907  vi dockerfile
+  908  docker system prune -a
+  909  docker ps
+  910  docker-compose down
+  911  free
+  912  df -h
+  913  systemctl stop docker
+  914  systemctl start docker
+  915  systemctl status docker
+  916  docker ps
+  917  docker ps -a
+  918  docker system prune -a
+  919  df -h
+  920  vi dockerfile
+  921  vi run-httpd.sh
+  922  docker images
+  923  docker build -t fileimage
+  924  docker build -t dfimage .
+  925  docker images
+  926  docker run -dit --name dfcont -p 81:80 dfimage
+  927  docker ps
+  928  mkdir dftest
+  929  vi dockerfile
+  930  docker node ls
+  931  docker swarm init --advertise-addr 15.207.106.164
+  933  docker swarm join-token manager
+  935  docker node ls
+  936  docker swarm join-token manager
+  938  docker node ls
+  939  docker swarm join-token manager
+  940  docker node ls
+  941  docker swarm join-node worker
+  942  docker swarm join-token worker
+  943  docker node ls
+  944  docker leave swarm
+  945  docker swarm leave
+  946  docker swarm init --advertise-addr 13.126.121.229
+  947  docker swarm leave
+  948  docker swarm leave --force-new-cluster
+  949  docker swarm leave --help
+  950  docker swarm leave -f
+  951  docker swarm init --advertise-addr 13.126.121.229
+  952  docker swarm join-token manager
+  953  docker node ls
+  954  docker service create --replicas 4 --name swarm1 ubuntu
+  955  docker service ls
+  956  docker service ps swarm1
+  957  docker swarm join --token SWMTKN-1-5lfe5v3yrtyrhctf7pewhkh8kyak4dspbw95569dqlwgfcgtz1-b23gioqyacis1w6jqiftnqs92 13.126.121.229:2377
+  958  docker node ls
+  959  docker ps
+  960  docker service ps
+  961  docker service ls
+  962  docker service create --replicas 2 --name swarm1 ubuntu
+  963  docker service ls
+  964  docker service rm swarm1
+  965  docker service ls
+  966  docker service create --replicas 3 --name swarm1 ubuntu /bin/bash
+  967  docker service ps swarm1
+  968  docker service ls
+  969  docker service ps swarm2
+  970  docker service scale swarm2=6
+  971  docker service create --replicas 3 --name swarm3 --publish 81:80 wordpress
+  972  docker ps swarm3
+  973  docker service ps swarm3
+  974  docker images
+  975  docker pull wordpress
+  976  docker node ls
+  977  docker swarm leave
+  978  docker swarm join --token SWMTKN-1-66g341ip6cv1hw1xrb4u7d0tv451xyu4vuxx0p2wlr5ue4eayb-7svix6ajyzsaxwikrjljplf9j 13.232.114.236:2377
+  979  docker service stop
+  981  docker node ls
+  982  docker service ls
+  983  docker service ps swarm1
+  984  docker service stop
+  985  docker service rollback
+  986  docker service rollback --help
+  987  docker service rollback -d
+  988  docker service ls
+  989  docker service ps
+  990  docker service ps swarm1
+  992  docker ps -a
+docker swarm init --advertise-addr 13.233.138.175
+  964  docker node ls
+  965  docker swarm leave
+  966  docker swarm leave -f
+  967  docker swarm init --advertise-addr 13.233.138.175
+  968  docker swarm join-token manager
+  969  docker service ls
+  970  docker service ps swarm01
+  971  docker service ps swarm01
+  972  docker service ps swarm01
+  973  docker node ls
+  974  docker ps
+  975  docker service inspect swarm01
+  976  docker service inspect --pretty swarm01
+  977  docker service inspect --pretty swarm01
+  978  history
+  979  docker service create   --replicas 10   --name my_web   --update-delay 10s   --update-parallelism 2   --update-failure-action continue docker service create   --replicas 10   --name my_web   --update-delay 10s   --update-parallelism 2   --update-failure-action continue \ alpine
+  980  docker service ps ,
+  981  docker service ps my_web
+  982  docker service ps my_web
+  983  docker service inspect my_web
+  984  docker service ps my_web
+  985  docker service update --args /bin/bash
+  986  docker service update --args /bin/bash my_web
+  987  docker service inspect my_web
+  988  docker service update --image alpine --args ping www.google.com my_web
+  989  docker service update --image alpine --args "ping www.google.com" my_web
+  990  docker service ps my_web
+
+docker node update --availability active worker2
+  149  docker swarm leave
+  150  syatemctl enable docker
+  151  systemctl enable docker
+  152  docker swarm leave
+  153  systemctl start docker
+  154  systemctl enable docker
+  155  docker swarm leave
+  156  docker swarm leave -f
+  157  docker swarm join --token SWMTKN-1-04c2n5dqq0kma82ru0d0vr4u5ys97l6y0depvg37vxsv775t8k-9nj8dkqezh4qq6i9stljpvdcd 13.233.87.129:2377
+  158  docker service ps swarmtest
+  159  docker service scale swarmtest=10
+  160  docker service update   --publish-add published=81,target=80
+  161  docker service update   --publish-add published=82,target=80 swarm1
+  162  docker service update   --publish-add published=82,target=80 swarm1docker service ls
+  163  docker service ls
+  164  docker service ps swarm1
+  165  docker service ps swarm2
+  166  docker service inspect swarm1
+ 1000  docker network create --driver overlay over1
+ 1001  docker network create --driver overlay over2
+ 1002  docker network ls
+ 1003  docker service rm swarm
+ 1004  docker service create --replicas 4 --name swarm1 --network over1 --publish-add published=81,target=80 /  nginx
+ 1005  docker service create --replicas 4 --name swarm1 --network over1 --publish-add published=81,target=80 nginx
+ 1006  docker service create --replicas 4 --name swarm1 --network over1  nginx
+ 1007  docker service create --replicas 4 --name swarm2 --network over2  wordpress
+ 1008  docker service update   --publish-add published=83,target=80 swarm2
+ 1009  docker service inspect swarm2
+
+...........................................
+netdata installation:
+
+***bash <(curl -Ss https://my-netdata.io/kickstart.sh) --no-updates***
+
+
+apt-get install zlib1g-dev uuid-dev libmnl-dev pkg-config curl gcc make autoconf autoconf-archive autogen automake python python-yaml python-mysqldb nodejs lm-sensors python-psycopg2 netcat git -y
+git clone https://github.com/firehol/netdata.git --depth=1 ~/netdata
+cd netdata/
+./netdata-installer.sh
+systemctl start netdata
+systemctl enable netdata
+
+........................................
+k8s installation in ubuntu instance
+
+sudo hostnamectl set-hostname "master"
+sudo hostnamectl set-hostname "node1"
+sudo hostnamectl set-hostname "node2"
+
+docker gpg key:
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+
+sudo add-apt-repository    "deb [arch=amd64] 
+https://download.docker.com/linux/ubuntu \
+$(lsb_release -cs) 
+\stable"
+
+k8s gpg key:
+curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -
+
+cat << EOF | sudo tee /etc/apt/sources.list.d/kubernetes.list
+deb https://apt.kubernetes.io/ kubernetes-xenial main
+EOF
+
+sudo apt-get update
+
+sudo apt-get install -y docker-ce=18.06.1~ce~3-0~ubuntu kubelet=1.15.7-00 kubeadm=1.15.7-00 kubectl=1.15.7-00
+
+sudo apt-mark hold docker-ce kubelet kubeadm kubectl
+
+echo "net.bridge.bridge-nf-call-iptables=1" | sudo tee -a /etc/sysctl.conf
+
+sudo sysctl -p
+
+in manager-->
+sudo kubeadm init --pod-network-cidr=10.244.0.0/16
+
+sudo kubeadm init --pod-network-cidr=10.150.0.0/20
+
+kubeadm join 10.150.0.2:6443 --token duh6ha.ykel36ct9cvjo96w \
+    --discovery-token-ca-cert-hash sha256:71dea829f38719b9b842a19c70b37dbcf2318153950e9ab2b1f8221bee8e4ba2 
+
+
+kubeadm join 10.150.0.5:6443 --token 5i1wof.k2gurqciaeo50025 \
+    --discovery-token-ca-cert-hash sha256:66fe50ea37792932b294adec2a50400f71089f4bab755e07982277b97f5aa0c7
+
+
+
+apiVersion: kubelet.config.k8s.io/v1beta1
+kind: KubeletConfiguration
+cgroupDriver: systemd
+
+
+
+
+
+
+ 

@@ -1,0 +1,17 @@
+Familiarity with container orchestration services and tools , like Docker , Kubernetes
+On Prem Kubernetes Cluster Deployment and operations, administration, DevOps, K8s ecosystem tools (Helm) – at least 1 year in a production environment.
+Troubleshooting issues related to performance/scalability both at k8s level application APM logs – at least 1 year in production env.
+Setting up monitoring, logging & alerting within a mixed environment (AWS & On Prem) – Prometheus, Grafana etc.
+ Experience with AWS (ec2, VPC, Subnets) and supporting services in the cloud.
+Exposure to DevOps practices and tool chains – Jenkins, CI/CD
+Enhance CI/CD build pipeline for code movement to Dev/Stage/Scale and Production environments
+Docker image building, maintenance, orchestration, and pipelining
+1. Monitoring on containers running
+
+ Using grafana and Promethues and email monitoring for applications running containers
+Starting/stopping of services on containers
+
+Running deployment scripts for applications on containers
+
+Health checks of Virtual machines and AWS ec2 instances
+Emails are triggered when a service or container goes down and we will restart the containers

@@ -1,0 +1,24 @@
+$ sudo apt update
+    4  $ sudo apt upgrade
+    5  ansible --version
+    6  sudo /bin/bash
+    7  sudo ssh-copy-id root@34.86.97.58
+   12  ansible --version
+   14  ansible -m ping all
+   15  sudo /bin/bash
+   16  ansible -m ping all
+   32  cd ansible
+   35  ansible --version
+   36  clear
+   37  ansible -m ping all
+   38  sudo /bin/bash
+   39  vi 
+   41  vi play1.yml
+   42  cat play1.yaml 
+   43  vi play2.yml
+   44  ansible-playbook play2.yml 
+   45  sudo ansible-playbook play2.yml 
+   46  vi play2.yml 
+   47  sudo ansible-playbook play2.yml 
+   48  vi play2.yml 
+   49  sudo ansible-playbook play2.yml 
